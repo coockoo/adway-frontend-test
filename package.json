@@ -18,6 +18,7 @@
   "author": "Oleksandr Bondarchuk <alex.coockoo@gmail.com> (https://github.com/coockoo)",
   "license": "MIT",
   "dependencies": {
+    "classnames": "^2.2.6",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-redux": "^6.0.1",

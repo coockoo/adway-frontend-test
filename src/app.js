@@ -5,12 +5,13 @@ import { hot } from 'react-hot-loader/root';
 import './global.less';
 
 import Landing from './pages/landing';
+import Form from './pages/form';
 
 function App ({ page }) {
   return (
     <Fragment>
       {page === 'landing' &&  <Landing />}
-      {page === 'form' &&  <div>hoho haha</div>}
+      {page === 'form' &&  <Form />}
     </Fragment>
   );
 }
