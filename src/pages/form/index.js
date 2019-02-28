@@ -11,7 +11,7 @@ function Input (props) {
   return (
     <div className={s.inputBlock}>
       <input
-        type="text"
+        type={props.type || 'text'}
         placeholder={props.placeholder}
         className={cn([s.input, !!hasValue && s.inputFull])}
         value={props.value || ''}
@@ -23,9 +23,18 @@ function Input (props) {
 }
 
 function Form (props) {
+
   const [formData, setFormData] = useState(props.formData);
+
   return (
     <div className={s.page}>
+      <div className={cn([s.panel, s.row])}>
+        <div className={s.photo}></div>
+        <div className={s.photoSide}>
+          <h2 className={s.photoUse}>Using LinkedIn photo</h2>
+          <p className={s.changePhoto}>Change profile photo -></p>
+        </div>
+      </div>
       <div className={s.panel}>
         <h2 className={s.heading}>Fill in about yourself</h2>
         <Input
@@ -39,6 +48,7 @@ function Form (props) {
           onChange={(value) => setFormData({ ...formData, surname: value })}
         />
         <Input
+          type="email"
           placeholder="Email"
           value={formData.email}
           onChange={(value) => setFormData({ ...formData, email: value })}
@@ -47,16 +57,6 @@ function Form (props) {
           placeholder="Mobile"
           value={formData.mobile}
           onChange={(value) => setFormData({ ...formData, mobile: value })}
-        />
-        <Input
-          placeholder="Gender"
-          value={formData.gender}
-          onChange={(value) => setFormData({ ...formData, gender: value })}
-        />
-        <Input
-          placeholder="Date of Birth"
-          value={formData.dateOfBirth}
-          onChange={(value) => setFormData({ ...formData, dateOfBirth: value })}
         />
       </div>
       <button
