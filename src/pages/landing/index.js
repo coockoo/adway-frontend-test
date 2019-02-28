@@ -26,7 +26,7 @@ function Landing({ fetchJob, redirect, job }) {
         <div className={s.block}>
           <h2 className={s.heading}>Role Description</h2>
           <p className={s.description}>{job.description}</p>
-          <div className={s.showMore}>Show More -></div>
+          <div className={s.showMore}>Show More &rarr;</div>
         </div>
 
         <div className={s.block}>

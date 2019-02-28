@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 function Confirmation({ job }) {
   return (
     <div>
-      Yay! Youv'e applied to "{job.title}"! This is just a simple confirmation window with job title
-      in it.
+      Yay! Youv&#39;e applied to &#34;{job.title}&#34;! This is just a simple confirmation window
+      with job title in it.
     </div>
   );
 }

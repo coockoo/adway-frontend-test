@@ -24,12 +24,12 @@ function Input(props) {
   );
 }
 
-function useValidatedState(data, validate) {
+function useValidatedState(data, doValidation) {
   const [formData, setFormData] = useState(data);
   const [errors, setErrors] = useState({});
 
   function update(field, value) {
-    const validationMessage = validate(field, value, formData);
+    const validationMessage = doValidation(field, value, formData);
     if (validationMessage) {
       setErrors({ ...errors, [field]: validationMessage });
     } else {
@@ -56,7 +56,7 @@ function validate(field, value) {
     if (!value) {
       return 'Please, enter email';
     }
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; // eslint-disable-line max-len,no-useless-escape
     if (!value.match(re)) {
       return 'Please, enter valid email';
     }
@@ -80,7 +80,7 @@ function Form(props) {
         <div className={s.photo} />
         <div className={s.photoSide}>
           <h2 className={s.photoUse}>Using LinkedIn photo</h2>
-          <p className={s.changePhoto}>Change profile photo -></p>
+          <p className={s.changePhoto}>Change profile photo &rarr;</p>
         </div>
       </div>
       <div className={s.panel}>
