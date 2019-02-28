@@ -42,14 +42,14 @@ function useValidatedState (data, validate) {
 }
 
 function validate (field, value) {
-  if (field === 'name') {
+  if (field === 'firstname') {
     if (!value || value.length < 2) {
-      return 'Please, enter name';
+      return 'Please, enter first name';
     }
   }
-  if (field === 'surname') {
+  if (field === 'lastname') {
     if (!value || value.length < 2) {
-      return 'Please, enter surname';
+      return 'Please, enter last name';
     }
   }
   if (field === 'email') {
@@ -61,7 +61,7 @@ function validate (field, value) {
       return 'Please, enter valid email';
     }
   }
-  if (field === 'phone') {
+  if (field === 'mobilephone') {
     if (!value) {
       return 'Please enter the phone';
     }
@@ -86,16 +86,16 @@ function Form (props) {
       <div className={s.panel}>
         <h2 className={s.heading}>Fill in about yourself</h2>
         <Input
-          placeholder="Name"
-          value={formData.name}
-          onChange={(value) => setFormData('name', value)}
-          error={errors.name}
+          placeholder="First Name"
+          value={formData.firstname}
+          onChange={(value) => setFormData('firstname', value)}
+          error={errors.firstname}
         />
         <Input
-          placeholder="Surname"
-          value={formData.surname}
-          onChange={(value) => setFormData('surname', value)}
-          error={errors.surname}
+          placeholder="Last Name"
+          value={formData.lastname}
+          onChange={(value) => setFormData('lastname', value)}
+          error={errors.lastname}
         />
         <Input
           type="email"
@@ -106,9 +106,9 @@ function Form (props) {
         />
         <Input
           placeholder="Mobile"
-          value={formData.phone}
-          onChange={(value) => setFormData('phone', value)}
-          error={errors.phone}
+          value={formData.mobilephone}
+          onChange={(value) => setFormData('mobilephone', value)}
+          error={errors.mobilephone}
         />
       </div>
       <button
