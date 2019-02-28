@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import s from './styles.less';
 import { actions } from '../../redux';
 
-function Landing ({ fetchJob, redirect, job }) {
+function Landing({ fetchJob, redirect, job }) {
   useEffect(() => {
     fetchJob();
   }, []);
@@ -21,14 +21,13 @@ function Landing ({ fetchJob, redirect, job }) {
           <div className={s.tag}>{job.location}</div>
           <div className={s.tag}>{job.type}</div>
         </div>
-        <div className={s.separator}></div>
+        <div className={s.separator} />
 
         <div className={s.block}>
           <h2 className={s.heading}>Role Description</h2>
           <p className={s.description}>{job.description}</p>
           <div className={s.showMore}>Show More -></div>
         </div>
-
 
         <div className={s.block}>
           <h2 className={s.heading}>Benefits</h2>

@@ -8,14 +8,14 @@ import Landing from './pages/landing';
 import Form from './pages/form';
 import Confirmation from './pages/confirmation';
 
-function App ({ page }) {
+function App({ page }) {
   return (
     <Fragment>
-      {page === 'landing' &&  <Landing />}
-      {page === 'form' &&  <Form />}
-      {page === 'confirmation' &&  <Confirmation />}
+      {page === 'landing' && <Landing />}
+      {page === 'form' && <Form />}
+      {page === 'confirmation' && <Confirmation />}
     </Fragment>
   );
 }
 
-export default hot(connect(state => ({ page: state.page }))(App));
+export default hot(connect((state) => ({ page: state.page }))(App));

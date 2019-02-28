@@ -6,7 +6,7 @@ import s from './styles.less';
 
 import { actions } from '../../redux';
 
-function Input (props) {
+function Input(props) {
   const hasValue = !!props.value;
   const hasError = !!props.error;
   return (
@@ -24,11 +24,11 @@ function Input (props) {
   );
 }
 
-function useValidatedState (data, validate) {
+function useValidatedState(data, validate) {
   const [formData, setFormData] = useState(data);
   const [errors, setErrors] = useState({});
 
-  function update (field, value) {
+  function update(field, value) {
     const validationMessage = validate(field, value, formData);
     if (validationMessage) {
       setErrors({ ...errors, [field]: validationMessage });
@@ -41,7 +41,7 @@ function useValidatedState (data, validate) {
   return [formData, update, errors];
 }
 
-function validate (field, value) {
+function validate(field, value) {
   if (field === 'firstname') {
     if (!value || value.length < 2) {
       return 'Please, enter first name';
@@ -71,13 +71,13 @@ function validate (field, value) {
   }
 }
 
-function Form (props) {
+function Form(props) {
   const [formData, setFormData, errors] = useValidatedState(props.formData, validate);
 
   return (
     <div className={s.page}>
       <div className={cn([s.panel, s.row])}>
-        <div className={s.photo}></div>
+        <div className={s.photo} />
         <div className={s.photoSide}>
           <h2 className={s.photoUse}>Using LinkedIn photo</h2>
           <p className={s.changePhoto}>Change profile photo -></p>
@@ -111,11 +111,7 @@ function Form (props) {
           error={errors.mobilephone}
         />
       </div>
-      <button
-        type="button"
-        className={s.submitBtn}
-        onClick={() => props.submit(formData)}
-      >
+      <button type="button" className={s.submitBtn} onClick={() => props.submit(formData)}>
         Continue
       </button>
     </div>
@@ -123,6 +119,6 @@ function Form (props) {
 }
 
 export default connect(
-  state => ({ formData: state.formData }),
-  actions,
+  (state) => ({ formData: state.formData }),
+  actions
 )(Form);
