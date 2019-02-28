@@ -5,7 +5,8 @@
   "description": "Frontend test solution written by Oleksandr Bondarchuk",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.development.js --progress --color"
+    "dev": "webpack-dev-server --config webpack.config.development.js --progress --color",
+    "server": "node server/src/index.js"
   },
   "keywords": [
     "frontend",
